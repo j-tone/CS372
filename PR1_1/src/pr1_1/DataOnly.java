@@ -10,7 +10,16 @@ package pr1_1;
  * @author Justin
  */
 public class DataOnly {
+    /**
+     * Int i stores an int
+     */
     int i;
+    /**
+     * float f stores a float
+     */
     float f;
+    /**
+     * boolean b stores a boolean
+     */
     boolean b;
 }
