@@ -23,6 +23,7 @@ public class PR1_5 {
              * Initialized a random number generator and then the
              * two next numbers in the sequence to be compared
              */
+             //PT: As mentioned in class, you don't need to create a new Random object each time through the loop
             Random generator = new Random();
             int number = generator.nextInt(100);
             int number1 = generator.nextInt(100);
