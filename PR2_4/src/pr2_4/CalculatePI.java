@@ -44,7 +44,7 @@ public class CalculatePI {
     public void calculate(){
         for (int i = 1; i <= total_SeriesCount; i++){
             current_SeriesCount++;
-            PrintOutCurrent();
+            //PrintOutCurrent();
             if (i % 2 == 0)
                 PI_value += (numerator / denominator);
             else
