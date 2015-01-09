@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package pr2_1;
-
 /**
  *
  * @author Justin
  */
 public class Gerbil {
     private int gerbilNumber;
+    public Gerbil(){}
     public Gerbil(int number){
-        gerbilNumber = number+1;
+        gerbilNumber = number;
     }
     public void hop(){
         System.out.printf("Gerbil %d is hopping!\n", gerbilNumber);
