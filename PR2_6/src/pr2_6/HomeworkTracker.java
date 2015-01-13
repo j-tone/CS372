@@ -102,7 +102,7 @@ public class HomeworkTracker extends javax.swing.JFrame {
     }//GEN-LAST:event_txtScoreFieldActionPerformed
 
     private void calc_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calc_buttonActionPerformed
-        ScoreCalc.addScore(Double.parseDouble(txtScoreField.getText()));
+        ScoreCalc.addScore(Integer.parseInt(txtScoreField.getText()));
         String maxNum = String.format("Scores max: %-3.2f", ScoreCalc.getMax());
         String minNum = String.format("Scores min: %-3.2f", ScoreCalc.getMin());
         String avgNum = String.format("Average: %-3.2f", ScoreCalc.getAverage());
