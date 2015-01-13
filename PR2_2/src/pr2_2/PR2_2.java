@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package pr2_2;
-import pr2_1.Gerbil;
+import pr2_1.Gerbil;  //PT -- good
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
