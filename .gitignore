@@ -78,6 +78,12 @@ Temporary Items
 /PR2_7/build/
 /PR3_1/nbproject/private/
 /PR3_1/build/
+<<<<<<< HEAD
 /PR3_2/nbproject/private/
 /PR3_2/build/
 /PR3_2/dist/
+=======
+/PR2_1/dist/
+/PR2_4/dist/
+>>>>>>> origin/master
+/PR3_3/nbproject/private/

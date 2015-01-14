@@ -15,6 +15,7 @@ public class PR2_4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //PT -- need to check that the argument is there. -2
         int input = Integer.parseInt(args[0]);
         //int input = 160;
         //System.out.printf("The number you entered was %d.\n", input);
