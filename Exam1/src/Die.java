@@ -3,11 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.util.Random;
 /**
  *
  * @author Justin
  */
-public class Event {
-    
+public class Die {
+    private Random value;
+    public Die(){
+        value = new Random();
+    }
+    public int roll(){
+        return (value.nextInt()%6) + 1;
+    }
 }

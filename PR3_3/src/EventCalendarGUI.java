@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import javax.swing.DefaultListModel;
 /**
  *
  * @author Justin
@@ -15,6 +20,7 @@ public class EventCalendarGUI extends javax.swing.JFrame {
      */
     public EventCalendarGUI() {
         initComponents();
+        
     }
 
     /**
@@ -26,22 +32,190 @@ public class EventCalendarGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogEvent = new javax.swing.JDialog();
+        lblHeader = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listEvents = new javax.swing.JList();
+        button_AddEvent = new javax.swing.JButton();
+        txtsshowEventInfo = new javax.swing.JTextField();
+        lblSubHeader = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtLocation = new javax.swing.JTextField();
+        txtDate = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout dialogEventLayout = new javax.swing.GroupLayout(dialogEvent.getContentPane());
+        dialogEvent.getContentPane().setLayout(dialogEventLayout);
+        dialogEventLayout.setHorizontalGroup(
+            dialogEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        dialogEventLayout.setVerticalGroup(
+            dialogEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblHeader.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblHeader.setText("This is an Event Calendar");
+
+        listEvents.setModel(new DefaultListModel<String>() {
+
+            public int getSize() { return _fc.size(); }
+
+            public String getElementAt(int i) { return _fc.get(i); }
+
+            public void addElement(String f) { super.addElement(f); _fc.add(f); }
+
+            public void add(int i, String f) { super.add(i, f); _fc.add(i, f); }
+
+        });
+        listEvents.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listEventsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listEvents);
+
+        button_AddEvent.setText("Add Event");
+        button_AddEvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_AddEventActionPerformed(evt);
+            }
+        });
+
+        txtsshowEventInfo.setText("jTextField1");
+        txtsshowEventInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsshowEventInfoActionPerformed(evt);
+            }
+        });
+
+        lblSubHeader.setText("Enter your event: ");
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Name of Event:");
+
+        jLabel2.setText("Name of Location: ");
+
+        jLabel3.setText("Date:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblHeader))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblSubHeader)
+                                .addComponent(txtName)
+                                .addComponent(txtLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_AddEvent))
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtsshowEventInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHeader)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtsshowEventInfo)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblSubHeader)
+                            .addGap(55, 55, 55)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30)
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(button_AddEvent))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_AddEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AddEventActionPerformed
+        try{
+            File f = new File("C:\\Users\\Justin\\Documents\\GitHub\\CS372\\PR3_3\\NewEvent.txt");
+            BufferedWriter wrtr = new BufferedWriter(new FileWriter(f));
+            wrtr.write(txtName.getText());
+            wrtr.newLine();
+            wrtr.write(txtLocation.getText());
+            wrtr.newLine();
+            wrtr.write(txtDate.getText());
+            wrtr.newLine();
+            wrtr.close();
+        }
+        catch(Exception ex){
+            System.out.println("OH NO SOMETHING WENT WRONG");
+        }
+        
+    }//GEN-LAST:event_button_AddEventActionPerformed
+
+    private void txtsshowEventInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsshowEventInfoActionPerformed
+        
+    }//GEN-LAST:event_txtsshowEventInfoActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
+
+    private void listEventsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listEventsMouseClicked
+        
+    }//GEN-LAST:event_listEventsMouseClicked
+    private void getPreviousEvents(){
+        try{
+        File f = new File("C:\\Users\\Justin\\Documents\\GitHub\\CS372\\PR3_3\\NewEvent.txt");
+        BufferedReader rdr = new BufferedReader(new FileReader(f));
+        listEvents.addElement(rdr.readLine());
+        }
+        catch(Exception ex){
+            
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -73,10 +247,24 @@ public class EventCalendarGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EventCalendarGUI().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_AddEvent;
+    private javax.swing.JDialog dialogEvent;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHeader;
+    private javax.swing.JLabel lblSubHeader;
+    private javax.swing.JList listEvents;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtsshowEventInfo;
     // End of variables declaration//GEN-END:variables
 }
