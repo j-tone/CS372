@@ -14,6 +14,10 @@ public class Die {
         value = new Random();
     }
     public int roll(){
-        return (value.nextInt()%6) + 1;
+        int nextValue = value.nextInt();
+        while (nextValue < 0){
+            nextValue = value.nextInt();
+        }
+        return (nextValue % 6) + 1;
     }
 }
