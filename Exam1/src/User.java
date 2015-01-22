@@ -17,34 +17,30 @@ public class User {
     private int cash;
     private String name;
     private String UserName;
-    private File f;
+    File f;
     public User(){}
     public User(String Name){
         cash = 500;
         name = Name;
     }
-    public User FindOldUser(String username)
-    throws Exception{
+    public User FindOldUser(String username){
+        try{
             f = new File("C:\\Users\\Justin\\Documents\\GitHub\\CS372\\Exam1\\" + username + ".txt");
-            if (f.exists() && f.isFile()){
             BufferedReader reader = new BufferedReader(new FileReader(f));
+            String line;
             name = reader.readLine();
             cash = Integer.parseInt(reader.readLine());
-            }
-            else{
-                throw new Exception();
-            }
+        }
+        catch (Exception e){}
         return this;
     }
-    public User setNewUser(String hopeful, String Name)
+    public User setNewUser(String hopeful)
     throws Exception{
         f = new File("C:\\Users\\Justin\\Documents\\GitHub\\CS372\\Exam1\\" + hopeful + ".txt");
-        if (f.exists() && f.isFile()){
+        if (f.exists()){
             throw new Exception();
         }
         else{
-            name = Name;
-            cash = 500;
             updateUser();
         }
         return this;
@@ -52,9 +48,6 @@ public class User {
     public void updateCash(int Cash){
         cash += Cash;
         updateUser();
-    }
-    public String getName(){
-        return name;
     }
     public int getCash(){
         return cash;
@@ -64,8 +57,7 @@ public class User {
             BufferedWriter updater = new BufferedWriter(new FileWriter(f));
             updater.write(name);
             updater.newLine();
-            updater.write(String.format("%d", cash));
-            updater.close();
+            updater.write(cash);
         }
         catch (Exception e){}
     }
