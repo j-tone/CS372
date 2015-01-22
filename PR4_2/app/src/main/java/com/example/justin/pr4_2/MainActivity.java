@@ -25,8 +25,9 @@ public class MainActivity extends ActionBarActivity {
                 if (r%2 == 0){
                     img.setImageResource(R.drawable.heads);
                 }
-                else
+                else {
                     img.setImageResource(R.drawable.tails);
+                }
             }
         });
 
