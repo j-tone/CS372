@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pr3_1;
+//PT -- very good
 import pr2_6.Averager;
 import java.util.Scanner;
 
@@ -38,6 +39,7 @@ public class PR3_1 {
         }
         catch(Exception e){
             System.out.println("You entered something that wasn't an integer. Do it again.");
+            //PT -- Using recursion here won't quite work. You'll need to re-think this
             enterStuff(a);
         }
     }

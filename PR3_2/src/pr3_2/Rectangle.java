@@ -17,6 +17,8 @@ public class Rectangle extends Shape{
         throws IllegalArgumentException
     {
         if (width == 0 || height == 0){
+            //PT -- Instead of system.out, put this message in the Exception object,
+            //      then let the caller handle the text (message box, system.out, or whatever)
             System.out.println("Can't enter a 0 for a side of a Rectangle, man.");
             throw new IllegalArgumentException();
         }
