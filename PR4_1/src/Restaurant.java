@@ -20,7 +20,9 @@ public class Restaurant {
     private String stars;
     private int starcount;
     private String description;
+    //PT -- why have this?
     public Restaurant(){}
+    //PT -- javadoc? -4
     public Restaurant(String Name, String Location, String Description, int Starcount)throws Exception{
         name = Name;
         location = Location;
@@ -55,7 +57,7 @@ public class Restaurant {
             case 5:
                 stars = "*****";
                 break;
-            default:
+            default://PT -- good
                 throw new Exception();
         }
     }
